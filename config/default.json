@@ -1,0 +1,40 @@
+{
+  "drachtio": {
+    "host": "127.0.0.1",
+    "port": 9022,
+    "secret": "cymru"
+  },
+  "freeswitch": [{
+    "address": "127.0.0.1",
+    "port": 8021,
+    "secret": "ClueCon"
+  }],
+  "redis" : {
+    "address": "127.0.0.1",
+    "port": 6379
+  },
+  "logging": {
+    "level": "info"
+  },
+  "domains": [
+    {
+      "name": "drachtio.org",
+      "users": [
+        {
+          "username": "1234",
+          "password": "foo",
+          "dids": ["+15083084809"]
+        },
+        {
+          "username": "5678",
+          "password": "bar",
+          "dids": ["+16178750790"]
+        }
+      ]   
+    }
+  ],
+  "siprec": {
+    "enabled": true,
+    "uri": "sip:your.srs.ip.address"
+  }
+}

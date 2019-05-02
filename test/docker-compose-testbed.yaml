@@ -1,0 +1,49 @@
+version: '3'
+
+networks:
+  drachtio-basic-registrar:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.38.0.0/16
+
+services:
+  drachtio:
+    image: drachtio/drachtio-server:latest
+    command: drachtio --contact "sip:*;transport=udp" --loglevel debug --sofia-loglevel 9
+    container_name: drachtio
+    ports:
+      - "9060:9022/tcp"
+    networks:
+      drachtio-basic-registrar:
+        ipv4_address: 172.38.0.10
+
+  freeswitch:
+    image: drachtio/drachtio-freeswitch-mrf:1.8-slim
+    command: freeswitch --sip-port 5060 --rtp-range-start 20000 --rtp-range-end 20040
+    container_name: freeswitch
+    ports:
+      - "9070:8021/tcp"
+    networks:
+      drachtio-basic-registrar:
+        ipv4_address: 172.38.0.11
+  
+  sipp-uas:
+    image: drachtio/sipp:latest
+    command: sipp -sf /tmp/uas.xml
+    container_name: sipp-uas.local
+    volumes:
+      - ./scenarios:/tmp
+    tty: true
+    networks:
+      drachtio-basic-registrar:
+        ipv4_address: 172.38.0.12
+
+  redis:
+    image: redis
+    ports:
+      - "9379:6379/tcp"
+    networks:
+      drachtio-basic-registrar:
+        ipv4_address: 172.38.0.13
+

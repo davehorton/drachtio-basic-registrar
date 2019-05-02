@@ -1,0 +1,36 @@
+{
+  "drachtio": {
+    "host": "127.0.0.1",
+    "port": 9060,
+    "secret": "cymru"
+  },
+  "freeswitch": [{
+    "address": "127.0.0.1",
+    "port": 9070,
+    "secret": "ClueCon"
+  }],
+  "redis" : {
+    "address": "127.0.0.1",
+    "port": 9379
+  },
+  "logging": {
+    "level": "info"
+  },
+  "domains": [
+    {
+      "name": "drachtio.org",
+      "users": [
+        {
+          "username": "1234",
+          "password": "foo",
+          "dids": ["+15083084809"]
+        },
+        {
+          "username": "5678",
+          "password": "bar",
+          "dids": ["+16178750790"]
+        }
+      ]   
+    }
+  ]
+}
