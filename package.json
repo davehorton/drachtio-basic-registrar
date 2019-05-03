@@ -19,14 +19,14 @@
   },
   "dependencies": {
     "bluebird": "^3.5.4",
+    "clear-require": "^3.0.0",
     "config": "^3.1.0",
-    "drachtio-fn-fsmrf-sugar": "0.0.3",
-    "drachtio-fsmrf": "^1.4.2",
     "drachtio-mw-digest-auth": "^0.2.1",
     "drachtio-mw-registration-parser": "^0.1.0",
     "drachtio-srf": "^4.4.6",
     "pino": "^5.12.3",
-    "redis": "^2.8.0"
+    "redis": "^2.8.0",
+    "rtpengine-client": "0.0.8"
   },
   "devDependencies": {
     "blue-tape": "^1.0.0",

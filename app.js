@@ -1,9 +1,5 @@
 const Srf = require('drachtio-srf');
-const srf = new Srf();
-const Mrf = require('drachtio-fsmrf');
-const mrf = new Mrf(srf);
-const {LoadBalancer} = require('drachtio-fn-fsmrf-sugar');
-const config = require('config');
+const srf = new Srf();const config = require('config');
 const logger = require('pino')(config.get('logging'));
 const regParser = require('drachtio-mw-registration-parser') ;
 const {digestChallenge} = require('./lib/middleware');
@@ -21,8 +17,6 @@ srf.connect(config.get('drachtio'));
 srf.on('connect', (err, hp) => {
   if (err) throw err;
   logger.info(`connected to drachtio listening on ${hp}`);
-  const lb = srf.locals.lb = new LoadBalancer();
-  lb.start({servers: config.get('freeswitch'), logger, mrf});
 });
 if (process.env.NODE_ENV !== 'test') {
   srf.on('error', (err) => logger.error(err));

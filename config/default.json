@@ -4,11 +4,10 @@
     "port": 9022,
     "secret": "cymru"
   },
-  "freeswitch": [{
-    "address": "127.0.0.1",
-    "port": 8021,
-    "secret": "ClueCon"
-  }],
+  "rtpengine": {
+    "host": "127.0.0.1",
+    "port": 22222
+  },
   "redis" : {
     "address": "127.0.0.1",
     "port": 6379
@@ -18,23 +17,22 @@
   },
   "domains": [
     {
-      "name": "drachtio.org",
+      "name": "bandwidth.com",
       "users": [
         {
-          "username": "1234",
-          "password": "foo",
-          "dids": ["+15083084809"]
+          "username": "123",
+          "password": "foo"
         },
         {
-          "username": "5678",
-          "password": "bar",
-          "dids": ["+16178750790"]
+          "username": "456",
+          "password": "bar"
+        },
+        {
+          "username": "789",
+          "password": "baz"
         }
       ]   
     }
   ],
-  "siprec": {
-    "enabled": true,
-    "uri": "sip:your.srs.ip.address"
-  }
+  "sbc": "67.231.12.12"
 }
