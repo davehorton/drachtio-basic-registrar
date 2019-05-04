@@ -1,5 +1,5 @@
 const { spawn } = require('child_process');
-//const debug = require('debug')('test:sipp');
+const debug = require('debug')('drachtio:basic-registrar');
 let network;
 const obj = {};
 let output = '';
@@ -24,18 +24,23 @@ obj.output = () => {
   return output;
 };
 
-obj.sippUac = (file) => {
+obj.sippUac = (file, obj) => {
+  obj = obj || {};
   const cmd = 'docker';
   const args = [
-    'run', '-ti', '--rm', '--net', `${network}`,
-    '-v', `${__dirname}/scenarios:/tmp/scenarios`,
+    'run', '-ti', '--rm', '--net', `${network}`
+  ]
+  .concat(obj.ip ? [`--ip=${obj.ip}`] : [])
+  .concat([
+    '-v', `${__dirname}/../scenarios:/tmp/scenarios`,
     'drachtio/sipp', 'sipp', '-sf', `/tmp/scenarios/${file}`,
     '-m', '1',
-    '-sleep', '250ms',
+    '-sleep', obj.sleep || '5ms',
     '-nostdin',
-    '-cid_str', `%u-%p@%s-${idx++}`,
-    'drachtio'
-  ];
+    '-cid_str', `%u-%p@%s-${idx++}`
+  ])
+  .concat(Array.isArray(obj.vars) ? obj.vars : [])
+  .concat(['drachtio']);
 
   clearOutput();
 
@@ -54,11 +59,7 @@ obj.sippUac = (file) => {
     });
 
     child_process.stdout.on('data', (data) => {
-      //debug(`stdout: ${data}`);
-      addOutput(data.toString());
-    });
-    child_process.stdout.on('data', (data) => {
-      //debug(`stdout: ${data}`);
+      debug(`stdout: ${data}`);
       addOutput(data.toString());
     });
   });

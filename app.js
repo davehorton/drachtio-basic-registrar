@@ -7,10 +7,13 @@ const Registrar = require('./lib/registrar');
 srf.locals.registrar = new Registrar(logger);
 
 // disable logging in test mode
+
 if (process.env.NODE_ENV === 'test') {
   const noop = () => {};
   logger.info = logger.debug = noop;
-  logger.child = () => {return {info: noop, error: noop, debug: noop};};
+  logger.child = function() {
+    return {info: noop, error: noop, debug: noop};
+  };
 }
 
 srf.connect(config.get('drachtio'));

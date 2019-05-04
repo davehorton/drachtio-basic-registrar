@@ -21,7 +21,8 @@
       "users": [
         {
           "username": "123",
-          "password": "foo"
+          "password": "foo",
+          "dids": ["9192059315"]
         },
         {
           "username": "456",
@@ -29,10 +30,19 @@
         },
         {
           "username": "789",
-          "password": "baz"
+          "password": "baz",
+          "dids": ["9192059602"]
         }
       ]   
     }
   ],
-  "sbc": "67.231.12.12"
+  "sip-trunk": {
+    "host": "67.231.12.12",
+    "port": 5060,
+    "default-ani": "+15083084809",
+    "auth": {
+      "username": "foo",
+      "password": "bar"
+    }
+  }
 }

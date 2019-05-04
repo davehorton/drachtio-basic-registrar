@@ -21,6 +21,7 @@
     "bluebird": "^3.5.4",
     "clear-require": "^3.0.0",
     "config": "^3.1.0",
+    "debug": "^4.1.1",
     "drachtio-mw-digest-auth": "^0.2.1",
     "drachtio-mw-registration-parser": "^0.1.0",
     "drachtio-srf": "^4.4.6",

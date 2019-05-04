@@ -4,11 +4,10 @@
     "port": 9060,
     "secret": "cymru"
   },
-  "freeswitch": [{
-    "address": "127.0.0.1",
-    "port": 9070,
-    "secret": "ClueCon"
-  }],
+  "rtpengine": {
+    "host": "127.0.0.1",
+    "port": 9080
+  },
   "redis" : {
     "address": "127.0.0.1",
     "port": 9379
@@ -22,15 +21,19 @@
       "users": [
         {
           "username": "1234",
-          "password": "foo",
-          "dids": ["+15083084809"]
+          "password": "foo"
         },
         {
           "username": "5678",
           "password": "bar",
-          "dids": ["+16178750790"]
+          "dids": ["+15083084809"]
         }
       ]   
     }
-  ]
+  ],
+  "sip-trunk": {
+    "host": "172.38.0.12",
+    "port": 5060,
+    "default-ani": "+15083084809"
+  }
 }
