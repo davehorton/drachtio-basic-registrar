@@ -25,3 +25,8 @@ Then point your sip phones and webrtc clients to the drachtio server and enjoy!
 ```
 npm test
 ```
+
+## TODO
+Currently, this app just handles registrations and invites.  Planned next steps would be to handle presence-related messages (SUBSCRIBE, PUBLISH) and IM (Message) as well.
+
+Contributors welcome!
