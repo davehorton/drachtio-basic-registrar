@@ -4,8 +4,9 @@ A SIP registrar built using [drachtio](https://drachtio.org) and [rtpengine](htt
 
 Features:
 
-- supports nat'ed sip clients
-- supports webrtc clients
+- supports sip clients over udp, tcp, wss
+- supports sip clients behind a nat firewall
+- supports webrtc clients and handles SRTP/RTP encrypt/decrypt as necessary
 - connectable to your SIP trunking provider
 
 ## Installing
