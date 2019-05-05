@@ -35,5 +35,21 @@
     "host": "172.38.0.12",
     "port": 5060,
     "default-ani": "+15083084809"
+  },
+  "transcoding": {
+    "rtpCharacteristics" : {
+      "transport protocol": "RTP/AVP",
+      "DTLS": "off",
+      "SDES": "off",
+      "ICE": "remove",
+      "rtcp-mux": ["demux"]
+    },
+    "srtpCharacteristics": {
+      "transport-protocol": "UDP/TLS/RTP/SAVPF",
+      "ICE": "force",
+      "SDES": "off",
+      "flags": ["generate mid", "SDES-no"],
+      "rtcp-mux": ["require"]
+    } 
   }
 }

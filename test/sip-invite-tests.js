@@ -33,7 +33,7 @@ test('invite tests', (t) => {
     .then(() => p)
     .then(() => t.pass('completes call between two registered sip endpoints'))
     .then(() => sippUac('uac-call-sip-trunk.xml'))
-    .then(() => t.pass('completes call to sip trunk'))
+    .then(() => t.pass('completes call to sip trunking provider'))
     .then(() => {
       p = sippUac('uac-incoming-pstn-call.xml', {sleep: '1000ms'});
       return;
@@ -42,6 +42,7 @@ test('invite tests', (t) => {
     .then(() => t.pass('called party registered ok'))
     .then(() => sippUac('uas.xml', {ip: '172.38.0.21'}))
     .then(() => p)
+    .then(() => t.pass('completes incoming call from sip trunking provider'))
     .then(() => {
       srf.disconnect();
       t.end();
