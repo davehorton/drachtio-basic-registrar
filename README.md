@@ -1,4 +1,4 @@
-# drachtio-basic-registrar
+# drachtio-basic-registrar [![Build Status](https://secure.travis-ci.org/davehorton/drachtio-basic-registrar.png)](http://travis-ci.org/davehorton/drachtio-basic-registrar)
 
 A SIP registrar built using [drachtio](https://drachtio.org) and [rtpengine](https://github.com/sipwise/rtpengine).
 
