@@ -31,10 +31,13 @@
       ]   
     }
   ],
-  "sip-trunk": {
-    "host": "172.38.0.12",
-    "port": 5060,
-    "default-ani": "+15083084809"
+  "sip-trunks": {
+    "outbound": {
+      "host": "172.38.0.12",
+      "port": 5060,
+      "default-ani": "+15083084809"  
+    },
+    "inbound": ["172.38.0.25"]
   },
   "transcoding": {
     "rtpCharacteristics" : {

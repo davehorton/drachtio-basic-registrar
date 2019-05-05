@@ -35,7 +35,7 @@ test('invite tests', (t) => {
     .then(() => sippUac('uac-call-sip-trunk.xml'))
     .then(() => t.pass('completes call to sip trunking provider'))
     .then(() => {
-      p = sippUac('uac-incoming-pstn-call.xml', {sleep: '1000ms'});
+      p = sippUac('uac-incoming-pstn-call.xml', {sleep: '1000ms', ip: '172.38.0.25'});
       return;
     })
     .then(() => sippUac('uas-register.xml', {ip: '172.38.0.21'}))
