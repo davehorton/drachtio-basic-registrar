@@ -17,7 +17,7 @@
   },
   "domains": [
     {
-      "name": "bandwidth.com",
+      "name": "drachtio.org",
       "users": [
         {
           "username": "123",
@@ -37,7 +37,7 @@
     }
   ],
   "sip-trunk": {
-    "host": "67.231.12.12",
+    "host": "67.221.10.22",
     "port": 5060,
     "default-ani": "+15083084809",
     "auth": {
