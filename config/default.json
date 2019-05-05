@@ -17,7 +17,7 @@
   },
   "domains": [
     {
-      "name": "drachtio.org",
+      "name": "a.domain.com",
       "users": [
         {
           "username": "123",
@@ -37,9 +37,9 @@
     }
   ],
   "sip-trunk": {
-    "host": "67.221.10.22",
+    "host": "your-sip-trunking-provider-ip",
     "port": 5060,
-    "default-ani": "+15083084809",
+    "default-ani": "+15052221234",
     "auth": {
       "username": "foo",
       "password": "bar"
