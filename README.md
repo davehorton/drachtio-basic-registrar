@@ -14,6 +14,7 @@ Features:
 - install [drachtio](https://drachtio.org), [rtpengine](https://github.com/sipwise/rtpengine) and [redis](https://redis.io) somewhere in your network (drachtio and rtpengine must have public IP addresses),
 - create a config file (see [config/default.json](config/default.json) for example settings),
 - add your sip user credentials to the config file,
+- assign DIDs to sip users in the config file, if you want to receive calls from the PSTN and route them to sip users,
 - add your SIP trunking provider details (If you have one) to the config file, then
 ```bash
 $ npm install
