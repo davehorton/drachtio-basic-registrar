@@ -18,7 +18,7 @@ Features:
 $ npm install
 $ npm start
 ```
-Then point your sip phones and webrtc clients to the server and enjoy!
+Then point your sip phones and webrtc clients to the drachtio server and enjoy!
 
 ## Testing
 ```
