@@ -20,7 +20,7 @@ test('register tests', (t) => {
   const {srf} = require('../app');
 
   connect(srf)
-    .then(() => sippUac('uac-register-no-nat.xml'))
+    .then(() => sippUac('uac-register-no-nat.xml', {vars: ['-t', 't1']}))
     .then(() => t.pass('leaves Expires value in place if client is not behind nat'))
     .then(() => sippUac('uac-register-nat.xml'))
     .then(() => t.pass('reduces Expires value if client is behind nat'))
