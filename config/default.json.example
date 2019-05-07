@@ -40,7 +40,11 @@
     "outbound": {
       "host": "your-outbound-sip-trunking-provider-ip",
       "port": 5060,
-      "default-ani": "+15052221234"
+      "default-ani": "+15052221234",
+      "auth": {
+        "username": "foo",
+        "password": "bar
+      }
     },
     "inbound" : ["an-inbound-carrier-ip", "another-inbound-carrier-ip"]
   },
