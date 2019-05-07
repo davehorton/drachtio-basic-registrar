@@ -47,3 +47,13 @@ services:
       drachtio-basic-registrar:
         ipv4_address: 172.38.0.13
 
+  freeswitch:
+    image: drachtio/drachtio-freeswitch-mrf:1.8-slim-1.1
+    command: freeswitch --sip-port 5060 --rtp-range-start 20000 --rtp-range-end 20020
+    container_name: freeswitch
+    ports:
+      - "9071:8021/tcp"
+    networks:
+      drachtio-basic-registrar:
+        ipv4_address: 172.38.0.14
+

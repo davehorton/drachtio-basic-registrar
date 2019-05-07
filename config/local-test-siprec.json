@@ -1,52 +1,43 @@
 {
   "drachtio": {
     "host": "127.0.0.1",
-    "port": 9022,
+    "port": 9060,
     "secret": "cymru"
   },
   "rtpengine": {
     "host": "127.0.0.1",
-    "port": 22222
+    "port": 9080
   },
   "redis" : {
     "address": "127.0.0.1",
-    "port": 6379
+    "port": 9379
   },
   "logging": {
     "level": "info"
   },
   "domains": [
     {
-      "name": "a.domain.com",
+      "name": "drachtio.org",
       "users": [
         {
-          "username": "123",
-          "password": "foo",
-          "dids": ["9192059315"]
+          "username": "1234",
+          "password": "foo"
         },
         {
-          "username": "456",
-          "password": "bar"
-        },
-        {
-          "username": "789",
-          "password": "baz",
-          "dids": ["9192059602"]
+          "username": "5678",
+          "password": "bar",
+          "dids": ["+15083084809"]
         }
       ]   
     }
   ],
   "sip-trunks": {
     "outbound": {
-      "host": "your-outbound-sip-trunking-provider-ip",
+      "host": "172.38.0.12",
       "port": 5060,
-      "default-ani": "+15052221234",
-      "auth": {
-        "username": "foo",
-        "password": "bar
-      }
+      "default-ani": "+15083084809"  
     },
-    "inbound" : ["an-inbound-carrier-ip", "another-inbound-carrier-ip"]
+    "inbound": ["172.38.0.25"]
   },
   "transcoding": {
     "rtpCharacteristics" : {
@@ -71,8 +62,8 @@
       "port": 5060
     },
     "freeswitch": [{
-      "address": "10.10.10.1",
-      "port": 8021,
+      "address": "127.0.0.1",
+      "port": 9071,
       "secret": "ClueCon"
     }]
   }

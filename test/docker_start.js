@@ -6,15 +6,11 @@ test('starting docker network..', (t) => {
   exec(`docker-compose -f ${__dirname}/docker-compose-testbed.yaml up -d`, (err, stdout, stderr) => {
     if (-1 != stderr.indexOf('is up-to-date')) return t.end() ;
 
-    t.end();
-    /*
     console.log('docker network started, giving extra time for freeswitch to initialize...');
     testFreeswitches(['freeswitch'], 20000, (err) => {
       t.end(err);
     });
-    */
-  });
-  
+  });  
 });
 
 
