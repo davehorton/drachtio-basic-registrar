@@ -1,15 +1,10 @@
 FROM node:10-alpine
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-ARG NODE_ENV
-ENV NODE_ENV $NODE_ENV
-
-COPY package.json /usr/src/app/
-
-RUN npm install --production
-
-COPY . /usr/src/app
-
-CMD [ "npm", "start" ]
+RUN apk add --no-cache git
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+WORKDIR /home/node/app
+COPY package*.json ./
+USER node
+RUN npm install
+COPY --chown=node:node . .
+ENTRYPOINT [ "node", "app.js" ]
