@@ -32,7 +32,7 @@ srf.on('connect', async(err, hp) => {
     const mrf = new Mrf(srf);
     const {LoadBalancer} = require('drachtio-fn-fsmrf-sugar');
     srf.locals.lb = new LoadBalancer();
-    srf.locals.lb.start({servers: config.get('siprec.freeswitch'), mrf});
+    srf.locals.lb.start({servers: config.get('siprec.freeswitch'), logger, mrf});
   }
 });
 if (process.env.NODE_ENV !== 'test') {
