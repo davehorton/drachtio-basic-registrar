@@ -22,7 +22,7 @@
     "clear-require": "^3.0.0",
     "config": "^3.1.0",
     "debug": "^4.1.1",
-    "drachtio-fn-fsmrf-sugar": "0.0.4",
+    "drachtio-fn-fsmrf-sugar": "0.0.5",
     "drachtio-fsmrf": "^1.4.2",
     "drachtio-mw-digest-auth": "^0.2.1",
     "drachtio-mw-registration-parser": "^0.1.0",
