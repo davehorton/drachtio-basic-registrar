@@ -5,7 +5,6 @@ const logger = require('pino')(config.get('logging'));
 const regParser = require('drachtio-mw-registration-parser') ;
 const {digestChallenge} = require('./lib/middleware');
 const Registrar = require('./lib/registrar');
-const Mrf = require('drachtio-fsmrf');
 let siprec = false;
 if (config.has('siprec.enabled') && config.get('siprec.enabled') === true) {
   siprec = true;
@@ -14,7 +13,6 @@ if (config.has('siprec.enabled') && config.get('siprec.enabled') === true) {
 srf.locals.registrar = new Registrar(logger);
 
 // disable logging in test mode
-
 if (process.env.NODE_ENV === 'test') {
   const noop = () => {};
   logger.info = logger.debug = noop;
@@ -29,10 +27,9 @@ srf.on('connect', async(err, hp) => {
   logger.info(`connected to drachtio listening on ${hp}`);
 
   if (siprec) {
-    const mrf = new Mrf(srf);
     const {LoadBalancer} = require('drachtio-fn-fsmrf-sugar');
     srf.locals.lb = new LoadBalancer();
-    srf.locals.lb.start({servers: config.get('siprec.freeswitch'), logger, mrf});
+    srf.locals.lb.start({servers: config.get('siprec.freeswitch'), logger, srf});
   }
 });
 if (process.env.NODE_ENV !== 'test') {
