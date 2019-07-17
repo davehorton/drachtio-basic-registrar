@@ -43,7 +43,7 @@
       "default-ani": "+15052221234",
       "auth": {
         "username": "foo",
-        "password": "bar
+        "password": "bar"
       }
     },
     "inbound" : ["an-inbound-carrier-ip", "another-inbound-carrier-ip"]
