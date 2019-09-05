@@ -4,6 +4,8 @@ const logger = require('pino')(config.get('logging'));
 const regParser = require('drachtio-mw-registration-parser') ;
 const {digestChallenge} = require('./lib/middleware');
 const Registrar = require('./lib/registrar');
+const {isWSS} = require('./lib/utils');
+
 srf.locals.registrar = new Registrar(logger);
 
 // disable logging in test mode
@@ -27,9 +29,19 @@ if (process.env.NODE_ENV !== 'test') {
 
 // middleware
 srf.use('register', [digestChallenge(logger), regParser]);
+
+// for now only accept invites from webrtc clients
+srf.use('invite', (req, res, next) => {
+  if (!isWSS(req)) return res.send(603, {
+    headers: {
+      'X-Reason': `detected potential spammer from ${req.source_address}:${req.source_port}`
+    }
+  });
+  next();
+});
 srf.use('invite', digestChallenge(logger));
 
-srf.invite(require('./lib/invite')({logger}));
+srf.invite(require('./lib/invite')(logger));
 srf.register(require('./lib/register')({logger}));
 srf.options(require('./lib/options')({logger}));
 srf.subscribe(require('./lib/subscribe')({logger}));
