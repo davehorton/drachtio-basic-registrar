@@ -14,28 +14,26 @@
   "scripts": {
     "start": "node app",
     "test": "NODE_ENV=test node test/ | ./node_modules/.bin/tap-spec",
-    "coverage": "NODE_ENV=test ./node_modules/.bin/istanbul cover test/ --report html",
+    "coverage": "NODE_ENV=test ./node_modules/.bin/nyc cover test/ --report html",
     "jslint": "eslint app.js lib"
   },
   "dependencies": {
-    "bluebird": "^3.5.4",
+    "bluebird": "^3.7.2",
     "clear-require": "^3.0.0",
-    "config": "^3.1.0",
+    "config": "^3.3.1",
     "debug": "^4.1.1",
-    "drachtio-mw-digest-auth": "^0.2.1",
+    "drachtio-mw-digest-auth": "^0.3.3",
     "drachtio-mw-registration-parser": "^0.1.0",
-    "drachtio-srf": "^4.4.6",
-    "pino": "^5.12.3",
-    "redis": "^2.8.0",
-    "rtpengine-client": "0.0.8"
+    "drachtio-srf": "^4.4.36",
+    "nyc": "^15.1.0",
+    "pino": "^6.3.2",
+    "redis": "^3.0.2",
+    "rtpengine-client": "^0.1.1"
   },
   "devDependencies": {
     "blue-tape": "^1.0.0",
-    "clear-module": "^3.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-promise": "^4.1.1",
-    "istanbul": "^1.0.0-alpha.2",
-    "tap": "^13.1.2",
     "tap-dot": "^2.0.0",
     "tap-spec": "^5.0.0"
   }

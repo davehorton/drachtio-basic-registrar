@@ -1,7 +1,7 @@
 const test = require('blue-tape');
 const { output, sippUac } = require('./sipp')('test_drachtio-basic-registrar');
 const debug = require('debug')('drachtio:drachtio-basic-registrar');
-const clearModule = require('clear-module');
+const clearModule = require('clear-require');
 
 process.on('unhandledRejection', (reason, p) => {
   console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
